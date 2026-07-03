@@ -1,1 +1,35 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #f9f5ef;
+  color: #40342d;
+}
 
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+button {
+  background: #ef7b6b;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform .25s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+body {
+  padding: 60px;
+}
