@@ -352,3 +352,22 @@ button:focus {
 .house-body {
   overflow: visible;
 }
+.window.left {
+  display: block !important;
+  left: 42px !important;
+  top: 52px !important;
+}
+
+.window.right {
+  display: block !important;
+  right: 42px !important;
+  top: 52px !important;
+}
+
+.door {
+  display: block !important;
+  left: 50% !important;
+  bottom: 0 !important;
+  transform: translateX(-50%) !important;
+  background: #df7f6e !important;
+}
