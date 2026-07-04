@@ -340,3 +340,15 @@ button:focus {
 .door {
   display: block;
 }
+.window,
+.door {
+  z-index: 3;
+}
+
+.house-body::before {
+  z-index: 1;
+}
+
+.house-body {
+  overflow: visible;
+}
