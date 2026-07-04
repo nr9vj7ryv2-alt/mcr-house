@@ -163,41 +163,69 @@ h1 {
     radial-gradient(circle at 75% 45%, #b8c77c 0 22%, transparent 23%);
 }
 
-.house-art {
+.house-body {
+  width: 320px;
+  height: 205px;
+  margin: -8px auto 0;
+  background: #dfe8c7;
+  border: 5px solid #fff4df;
+  border-radius: 18px;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 18px 34px rgba(90, 70, 45, 0.2);
+}
+
+.window {
   position: absolute;
-  right: 12%;
-  bottom: 30px;
-  width: 360px;
-  height: 300px;
+  width: 58px;
+  height: 68px;
+  background: #a9cfdb;
+  border: 5px solid #fff7e7;
+  top: 52px;
+  border-radius: 14px 14px 10px 10px;
+  z-index: 5;
 }
 
-.roof {
-  width: 330px;
-  height: 110px;
-  background: #b97955;
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  margin: 0 auto;
+.window.left {
+  left: 42px;
 }
 
-.house-body { ... }
+.window.right {
+  right: 42px;
+}
 
-.house-body::before { ... }
+.door {
+  position: absolute;
+  width: 74px;
+  height: 124px;
+  background: #df7f6e;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 42px 42px 10px 10px;
+  z-index: 6;
+}
 
-.window { ... }
+.door::before {
+  content: "♥";
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #446b3c;
+  font-size: 1.2rem;
+}
 
-.window::before,
-.window::after { ... }
-
-.window.left { ... }
-
-.window.right { ... }
-
-.door { ... }
-
-.door::before { ... }
-
-.door::after { ... }}
-
+.door::after {
+  content: "";
+  position: absolute;
+  right: 13px;
+  top: 65px;
+  width: 8px;
+  height: 8px;
+  background: #d7a24c;
+  border-radius: 50%;
+}
 .butterfly {
   position: absolute;
   font-size: 2rem;
