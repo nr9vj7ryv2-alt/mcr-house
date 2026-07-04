@@ -319,3 +319,24 @@ button:focus {
     border-bottom: 1px solid #eadcc8;
   }
 }
+.house-art {
+  display: block;
+  width: 380px;
+  height: 320px;
+}
+
+.house-body {
+  display: block;
+  width: 320px;
+  height: 205px;
+  margin: -8px auto 0;
+  background: #dfe8c7;
+  border: 5px solid #fff4df;
+  border-radius: 18px;
+  position: relative;
+}
+
+.window,
+.door {
+  display: block;
+}
