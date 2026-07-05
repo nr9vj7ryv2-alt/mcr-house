@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Room | Monserrat's Creative Room</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="room-page play-page">
+
+<a class="back-home" href="index.html">← Back to Monserrat's House</a>
+
+<section class="room-hero">
+
+<p class="eyebrow">Welcome to the</p>
+
+<h1>🧩 Play Room</h1>
+
+<p>
+Learning happens through play. Discover games, movement activities,
+indoor fun, outdoor adventures, and family challenges that encourage
+creativity, curiosity, and laughter.
+</p>
+
+</section>
+
+<section class="room-grid">
+
+<article>
+<h2>Indoor Games</h2>
+<p>Screen-free games for rainy days and quiet afternoons.</p>
+</article>
+
+<article>
+<h2>Outdoor Adventures</h2>
+<p>Nature walks, scavenger hunts, backyard fun, and active play.</p>
+</article>
+
+<article>
+<h2>Family Challenges</h2>
+<p>Simple games that bring everyone together while building teamwork and confidence.</p>
+</article>
+
+</section>
+
+</main>
+
+</body>
+</html>
