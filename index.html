@@ -8,93 +8,87 @@
 </head>
 
 <body>
-  <header class="top">
-    <div class="logo">
-      <div class="logo-mark">🏡</div>
-      <div>
-        <div class="logo-name">
+  <header class="topbar">
+    <a class="brand" href="#welcome" aria-label="Monserrat's Creative Room home">
+      <span class="brand-house">🏡</span>
+      <span class="brand-text">
+        <span class="brand-name">
           <span>M</span><span>o</span><span>n</span><span>s</span><span>e</span><span>r</span><span>r</span><span>a</span><span>t</span><span>’s</span>
-        </div>
-        <div class="logo-subtitle">Creative Room</div>
-      </div>
-      <div class="logo-butterfly">🦋</div>
-    </div>
+        </span>
+        <span class="brand-subtitle">Creative Room</span>
+      </span>
+      <span class="brand-butterfly">🦋</span>
+    </a>
 
-    <label class="search">
-      <span class="sr-only">Search</span>
+    <label class="search-box">
+      <span class="sr-only">Search activities, printables, and ideas</span>
       <input type="search" placeholder="Search activities, printables, ideas..." />
-      <span>🔍</span>
+      <span aria-hidden="true">🔍</span>
     </label>
 
-    <nav class="tools" aria-label="Site tools">
-      <button>Aa<span>Text Size</span></button>
-      <button>🌐<span>Language</span></button>
-      <button>♡<span>Favorites</span></button>
-    </nav>
+    <div class="top-actions">
+      <button class="adapt-button" type="button" id="adaptOpen">ADApt</button>
+      <button class="favorite-button" type="button">♡ Favorites</button>
+    </div>
   </header>
 
-  <nav class="rooms" aria-label="Main rooms">
-    <a class="r1" href="#welcome">🏠 <b>Welcome</b><span>Start Here</span></a>
-    <a class="r2" href="#creative-room">🎨 <b>Creative Room</b><span>Art & Crafts</span></a>
-    <a class="r3" href="#learning-room">📖 <b>Learning Room</b><span>Books & Activities</span></a>
-    <a class="r4" href="#play-room">🧩 <b>Play Room</b><span>Games & Fun</span></a>
-    <a class="r5" href="#parent-room">💚 <b>Parent Room</b><span>Tips & Support</span></a>
-    <a class="r6" href="#family-room">👨‍👩‍👧 <b>Family Room</b><span>Together Time</span></a>
-    <a class="r7" href="#kindness-corner">🕊️ <b>Kindness Corner</b><span>Quotes & Ideas</span></a>
-    <a class="r8" href="#teaching-resources">📄 <b>Teaching Resources</b><span>Resources</span></a>
+  <nav class="room-nav" aria-label="Main rooms">
+    <a class="tab welcome" href="#welcome">🏠 <strong>Welcome</strong><span>Start Here</span></a>
+    <a class="tab creative" href="#creative-room">🎨 <strong>Creative Room</strong><span>Art & Crafts</span></a>
+    <a class="tab learning" href="#learning-room">📖 <strong>Learning Room</strong><span>Books & Activities</span></a>
+    <a class="tab play" href="#play-room">🧩 <strong>Play Room</strong><span>Games & Fun</span></a>
+    <a class="tab parent" href="#parent-room">💚 <strong>Parent Room</strong><span>Tips & Support</span></a>
+    <a class="tab family" href="#family-room">👨‍👩‍👧 <strong>Family Room</strong><span>Together Time</span></a>
+    <a class="tab kindness" href="#kindness-corner">🕊️ <strong>Kindness Corner</strong><span>Quotes & Ideas</span></a>
+    <a class="tab teaching" href="#teaching-resources">📄 <strong>Teaching Resources</strong><span>Resources</span></a>
   </nav>
 
   <main id="welcome" class="hero">
-    <section class="hero-text">
-      <p class="welcome-small">Welcome to</p>
-
+    <section class="hero-copy">
+      <p class="eyebrow">Welcome to</p>
       <h1>
-        <span class="rainbow-word">Monserrat’s</span>
+        <span>Monserrat’s</span>
         <span>Creative Room</span>
       </h1>
-
-      <div class="flourish">🌿 ❤️ 🌿</div>
-
+      <div class="divider">🌿 ❤️ 🌿</div>
       <p class="motto">Learn. Create. Grow Together.</p>
-
       <p class="intro">
         A cozy place for families and educators to discover ideas, crafts,
         stories, and tools that inspire learning and connection.
       </p>
-
-      <a class="main-button" href="#creative-room">🚪 Let’s Explore! →</a>
+      <a class="door-button" href="#creative-room">🚪 Let’s Explore! →</a>
     </section>
 
-    <section class="scene" aria-label="Watercolor cottage scene">
-      <span class="butterfly b1">🦋</span>
-      <span class="butterfly b2">🦋</span>
+    <section class="cottage-scene" aria-label="Watercolor-style cottage with trees, flowers, butterflies and coral door">
+      <span class="butterfly butterfly-one" aria-hidden="true">🦋</span>
+      <span class="butterfly butterfly-two" aria-hidden="true">🦋</span>
 
-      <div class="tree left-tree"></div>
-      <div class="tree right-tree"></div>
+      <div class="tree tree-left" aria-hidden="true"></div>
+      <div class="tree tree-right" aria-hidden="true"></div>
 
-      <div class="cottage">
+      <div class="cottage" aria-hidden="true">
         <div class="chimney"></div>
         <div class="roof"></div>
         <div class="house">
-          <div class="window left"></div>
-          <div class="window right"></div>
+          <div class="window window-left"></div>
+          <div class="window window-right"></div>
           <div class="door"><span>♥</span></div>
-          <div class="box left-box"></div>
-          <div class="box right-box"></div>
+          <div class="flowerbox flowerbox-left"></div>
+          <div class="flowerbox flowerbox-right"></div>
         </div>
       </div>
 
-      <div class="flowers"></div>
-      <div class="path"></div>
+      <div class="garden" aria-hidden="true"></div>
+      <div class="path" aria-hidden="true"></div>
     </section>
   </main>
 
-  <section class="features">
-    <article>🌱 <b>Kid-Friendly Activities</b><span>Fun and engaging for all ages</span></article>
-    <article>❤️ <b>Made for Families</b><span>Real ideas for real life at home</span></article>
-    <article>🖨️ <b>Print & Enjoy</b><span>Resources you can use anytime</span></article>
-    <article>👨‍👩‍👧 <b>Inclusive & Accessible</b><span>Everyone is welcome here</span></article>
-    <article>🛡️ <b>Safe & Ad-Free</b><span>A space you can trust</span></article>
+  <section class="features" aria-label="MCR highlights">
+    <article>🌱 <strong>Kid-Friendly Activities</strong><span>Fun and engaging for all ages</span></article>
+    <article>❤️ <strong>Made for Families</strong><span>Real ideas for real life at home</span></article>
+    <article>🖨️ <strong>Print & Enjoy</strong><span>Resources you can use anytime</span></article>
+    <article>🌼 <strong>Made to Welcome</strong><span>A place where every family belongs</span></article>
+    <article>🛡️ <strong>Safe & Ad-Free</strong><span>A space you can trust</span></article>
   </section>
 
   <section id="creative-room" class="preview-room">
@@ -102,8 +96,23 @@
     <p>The first room is opening soon. Crafts, stories, activities, and family ideas are being lovingly prepared.</p>
   </section>
 
-  <footer>
+  <footer class="footer">
     🏡 You are always welcome here. ❤️
   </footer>
+
+  <aside class="adapt-panel" id="adaptPanel" aria-hidden="true">
+    <div class="adapt-card">
+      <button class="close-adapt" id="adaptClose" type="button">×</button>
+      <h2>ADApt</h2>
+      <p>Customize your experience.</p>
+
+      <button type="button" data-setting="largeText">Larger Text</button>
+      <button type="button" data-setting="highContrast">High Contrast</button>
+      <button type="button" data-setting="reduceMotion">Reduce Motion</button>
+      <button type="button" data-setting="simpleFont">Simple Font</button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
 </body>
 </html>
