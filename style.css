@@ -152,7 +152,7 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 38% 62%;
   min-height: 600px;
   align-items: center;
   padding: 44px 60px 24px;
@@ -240,7 +240,7 @@ h1 span:last-child {
 }
 
 .hero-art img {
-  width: min(92%, 720px);
+  width: min(110%, 880px);
   height: auto;
   display: block;
   filter: drop-shadow(0 20px 30px rgba(90,70,45,.12));
