@@ -153,7 +153,7 @@ body {
 .hero {
   display: grid;
   grid-template-columns: 38% 62%;
-  min-height: 600px;
+  min-height: 700px;
   align-items: center;
   padding: 44px 60px 24px;
 }
@@ -231,12 +231,13 @@ h1 span:last-child {
   font-size: .95rem;
 }
 
-.hero-art {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 540px;
+.hero-art img {
+    width: min(160%, 1250px);
+    max-width: none;
+    height: auto;
+    display: block;
+    transform: translateX(-50px);
+    filter: drop-shadow(0 24px 40px rgba(90,70,45,.15));
 }
 
 .hero-art img {
