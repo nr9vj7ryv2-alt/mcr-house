@@ -232,21 +232,13 @@ h1 span:last-child {
 }
 
 .hero-art img {
-    width: min(160%, 1250px);
-    max-width: none;
-    height: auto;
-    display: block;
-    transform: translateX(-50px);
-    filter: drop-shadow(0 24px 40px rgba(90,70,45,.15));
-}
-
-.hero-art img {
-  width: min(110%, 880px);
+  width: min(160%, 1250px);
+  max-width: none;
   height: auto;
   display: block;
-  filter: drop-shadow(0 20px 30px rgba(90,70,45,.12));
+  transform: translateX(-50px);
+  filter: drop-shadow(0 24px 40px rgba(90,70,45,.15));
 }
-
 .butterfly {
   position: absolute;
   font-size: 2rem;
