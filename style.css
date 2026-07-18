@@ -463,3 +463,71 @@ body.reduce-motion .butterfly {
     border-bottom: 1px solid var(--border);
   }
 }
+/* ==================================================
+   PRINTABLE LIBRARY
+================================================== */
+.printable-resource {
+  max-width: 700px;
+  margin: 32px auto;
+  padding: 24px;
+  text-align: center;
+  background: #fff7e8;
+  border: 1px solid #ecd8bd;
+  border-radius: 20px;
+}
+
+.printable-resource h2 {
+  margin-top: 0;
+  color: #406d4d;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: #c6536d;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 5px 12px rgba(91, 61, 45, 0.16);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(91, 61, 45, 0.22);
+}
+
+.download-btn:focus-visible {
+  outline: 3px solid #406d4d;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-btn {
+    transition: none;
+  }
+
+  .download-btn:hover {
+    transform: none;
+  }
+}
+/* ==========================================
+   Printable Preview Image
+========================================== */
+
+<img
+  class="printable-preview"
+  src="/printables/creative-room/salt-painting/MCR_Salt_Painting_Pack_Preview.png"
+  alt="Preview of the MCR Salt Painting heart printable"
+/>.printable-preview {
+  display: block;
+  width: min(100%, 440px);
+  height: auto;
+  margin: 18px auto;
+  border-radius: 16px;
+  border: 1px solid #ecd8bd;
+}
