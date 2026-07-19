@@ -519,11 +519,7 @@ body.reduce-motion .butterfly {
    Printable Preview Image
 ========================================== */
 
-<img
-  class="printable-preview"
-  src="/printables/creative-room/salt-painting/MCR_Salt_Painting_Pack_Preview.png"
-  alt="Preview of the MCR Salt Painting heart printable"
-/>.printable-preview {
+
   display: block;
   width: min(100%, 440px);
   height: auto;
