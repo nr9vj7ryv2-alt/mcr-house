@@ -520,10 +520,15 @@ body.reduce-motion .butterfly {
 ========================================== */
 
 
+ 
+.printable-preview {
   display: block;
-  width: min(100%, 440px);
-  height: auto;
+  width: 100%;
+  max-width: 440px;
+  height: 220px;
+  object-fit: cover;
   margin: 18px auto;
   border-radius: 16px;
   border: 1px solid #ecd8bd;
 }
+ 
