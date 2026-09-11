@@ -515,15 +515,76 @@ body.reduce-motion .butterfly {
     transform: none;
   }
 }
+
 /* ==========================================
    Printable Preview Image
 ========================================== */
 
-
+.printable-preview {
   display: block;
-  width: min(100%, 440px);
-  height: auto;
+  width: 100%;
+  max-width: 440px;
+  height: 220px;
+  object-fit: cover;
   margin: 18px auto;
   border-radius: 16px;
   border: 1px solid #ecd8bd;
+}
+
+/* ==========================================
+   Room Grid Card Hover (adds to existing .room-grid article)
+========================================== */
+.room-grid article {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.room-grid article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(90, 70, 45, .12);
+}
+@media (prefers-reduced-motion: reduce) {
+  .room-grid article {
+    transition: none;
+  }
+  .room-grid article:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================
+   Printable Badge
+========================================== */
+.badge {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: #fff0ec;
+  color: #b95568;
+  border: 1px solid #efcfc7;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ==========================================
+   External Link List (More Inspiration card)
+========================================== */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+.link-list li {
+  margin-bottom: 8px;
+}
+.link-list a {
+  color: var(--sage);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(56, 107, 55, .3);
+}
+.link-list a:hover {
+  border-bottom-color: var(--sage);
 }
