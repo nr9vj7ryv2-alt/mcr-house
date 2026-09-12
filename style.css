@@ -588,3 +588,19 @@ body.reduce-motion .butterfly {
 .link-list a:hover {
   border-bottom-color: var(--sage);
 }
+
+/* ==========================================
+   Seasonal Activities Toggle
+========================================== */
+.season-label {
+  font-weight: 700;
+  color: var(--sage);
+  margin-top: 10px;
+}
+
+.season-toggle-btn {
+  border: none;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+}
