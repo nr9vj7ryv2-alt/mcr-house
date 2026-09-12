@@ -122,6 +122,43 @@
       <article>
         <h2>🍂 Seasonal Activities</h2>
         <p>Creative ideas for holidays, seasons, celebrations, and special family moments.</p>
+        <p id="season-label" class="season-label"></p>
+        <button id="season-toggle" class="download-btn season-toggle-btn" type="button">Show All Seasons</button>
+      </article>
+
+      <article class="season-card" data-season="fall">
+        <h2>🍁 Leaf Rubbing Art <span class="badge">Fall</span></h2>
+        <p>
+          Collect a few fallen leaves on a walk, place them under a sheet of
+          paper, and rub a crayon sideways across the surface to reveal each
+          leaf's veins and shape. A simple way to explore texture, patterns,
+          and the outdoors together.
+        </p>
+      </article>
+
+      <article class="season-card" data-season="fall">
+        <h2>🎃 Pumpkin Patch Counting <span class="badge">Fall</span></h2>
+        <p>
+          Using mini pumpkins (real or drawn), practice counting, sorting by
+          size, or simple addition — "if we have 3 big pumpkins and 2 small
+          ones, how many altogether?" A hands-on way to mix seasonal fun with
+          early math.
+        </p>
+      </article>
+
+      <article class="season-card" data-season="winter" style="display:none;">
+        <h2>❄️ Winter Activities <span class="badge">Winter</span></h2>
+        <p>Coming soon!</p>
+      </article>
+
+      <article class="season-card" data-season="spring" style="display:none;">
+        <h2>🌱 Spring Activities <span class="badge">Spring</span></h2>
+        <p>Coming soon!</p>
+      </article>
+
+      <article class="season-card" data-season="summer" style="display:none;">
+        <h2>☀️ Summer Activities <span class="badge">Summer</span></h2>
+        <p>Coming soon!</p>
       </article>
 
       <article>
@@ -139,6 +176,46 @@
       </article>
 
     </section>
+
+    <script>
+      (function () {
+        var month = new Date().getMonth(); // 0 = Jan ... 11 = Dec
+        var season;
+        if (month >= 8 && month <= 10) season = "fall";        // Sep, Oct, Nov
+        else if (month === 11 || month <= 1) season = "winter"; // Dec, Jan, Feb
+        else if (month >= 2 && month <= 4) season = "spring";   // Mar, Apr, May
+        else season = "summer";                                 // Jun, Jul, Aug
+
+        var labels = {
+          fall: "🍂 Showing Fall activities",
+          winter: "❄️ Showing Winter activities",
+          spring: "🌱 Showing Spring activities",
+          summer: "☀️ Showing Summer activities"
+        };
+
+        var cards = document.querySelectorAll(".season-card");
+        var label = document.getElementById("season-label");
+        var toggleBtn = document.getElementById("season-toggle");
+        var showingAll = false;
+
+        function applyFilter() {
+          cards.forEach(function (card) {
+            var matches = card.getAttribute("data-season") === season;
+            card.style.display = (showingAll || matches) ? "" : "none";
+          });
+          label.textContent = showingAll ? "Showing all seasons" : labels[season];
+          toggleBtn.textContent = showingAll ? "Show Current Season Only" : "Show All Seasons";
+        }
+
+        toggleBtn.addEventListener("click", function () {
+          showingAll = !showingAll;
+          applyFilter();
+        });
+
+        applyFilter();
+      })();
+    </script>
+
   </main>
 </body>
 </html>
