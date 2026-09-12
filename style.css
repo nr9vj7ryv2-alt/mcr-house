@@ -603,4 +603,21 @@ body.reduce-motion .butterfly {
   cursor: pointer;
   font-family: Arial, sans-serif;
   font-size: 0.85rem;
+}/* ==========================================
+   Category Sections (Kindness Corner style)
+========================================== */
+.category-section {
+  margin-top: 40px;
+}
+
+.category-title {
+  color: var(--sage);
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.category-desc {
+  margin-top: 0;
+  margin-bottom: 6px;
+  max-width: 700px;
 }
