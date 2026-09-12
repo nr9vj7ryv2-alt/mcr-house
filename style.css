@@ -603,7 +603,9 @@ body.reduce-motion .butterfly {
   cursor: pointer;
   font-family: Arial, sans-serif;
   font-size: 0.85rem;
-}/* ==========================================
+}
+
+/* ==========================================
    Category Sections (Kindness Corner style)
 ========================================== */
 .category-section {
