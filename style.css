@@ -559,9 +559,9 @@ body.reduce-motion .butterfly {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  background: #fff0ec;
-  color: #b95568;
-  border: 1px solid #efcfc7;
+  background: var(--coral);
+  color: white;
+  border: none;
   border-radius: 999px;
   padding: 3px 10px;
   margin-left: 8px;
@@ -622,4 +622,99 @@ body.reduce-motion .butterfly {
   margin-top: 0;
   margin-bottom: 6px;
   max-width: 700px;
+}
+
+/* ==========================================
+   Room Accent Colors (per-room identity)
+========================================== */
+.creative-page  { --room-accent: #f3bfa9; }
+.learning-page  { --room-accent: #cfe2ef; }
+.play-page      { --room-accent: #f5d37e; }
+.parent-page    { --room-accent: #d8dfb5; }
+.family-page    { --room-accent: #efc19e; }
+.kindness-page  { --room-accent: #d8c3e7; }
+.teaching-page  { --room-accent: #c8dceb; }
+
+.room-hero {
+  position: relative;
+  overflow: hidden;
+  border-top: 8px solid var(--room-accent, var(--border));
+}
+
+.room-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.room-hero::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: var(--room-accent, transparent);
+  opacity: 0.55;
+  filter: blur(4px);
+  z-index: 0;
+}
+
+.room-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--coral);
+  opacity: 0.22;
+  filter: blur(6px);
+  z-index: 0;
+}
+
+.room-grid article {
+  border-left: 8px solid var(--room-accent, var(--border));
+  background: color-mix(in srgb, var(--room-accent, var(--border)) 20%, var(--paper));
+}
+
+.room-grid article:hover {
+  background: color-mix(in srgb, var(--room-accent, var(--border)) 30%, var(--paper));
+}
+
+/* ==========================================
+   Card Entrance Animation
+========================================== */
+@keyframes cardRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.room-grid article {
+  animation: cardRise 0.5s ease both;
+}
+
+.room-grid article:nth-child(1) { animation-delay: 0.02s; }
+.room-grid article:nth-child(2) { animation-delay: 0.06s; }
+.room-grid article:nth-child(3) { animation-delay: 0.10s; }
+.room-grid article:nth-child(4) { animation-delay: 0.14s; }
+.room-grid article:nth-child(5) { animation-delay: 0.18s; }
+.room-grid article:nth-child(6) { animation-delay: 0.22s; }
+.room-grid article:nth-child(7) { animation-delay: 0.26s; }
+.room-grid article:nth-child(8) { animation-delay: 0.30s; }
+.room-grid article:nth-child(9) { animation-delay: 0.34s; }
+.room-grid article:nth-child(n+10) { animation-delay: 0.36s; }
+
+body.reduce-motion .room-grid article,
+body.reduce-motion .room-hero::before {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room-grid article {
+    animation: none !important;
+    opacity: 1 !important;
+  }
 }
