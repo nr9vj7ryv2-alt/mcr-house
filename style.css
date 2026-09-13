@@ -718,3 +718,68 @@ body.reduce-motion .room-hero::before {
     opacity: 1 !important;
   }
 }
+
+/* ==========================================
+   Search Results Dropdown
+========================================== */
+.search-results {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 14px 32px rgba(90, 70, 45, .18);
+  max-height: 420px;
+  overflow-y: auto;
+  z-index: 30;
+}
+
+.search-results.open {
+  display: block;
+}
+
+.search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+}
+
+.search-result:last-child {
+  border-bottom: none;
+}
+
+.search-result:hover,
+.search-result:focus {
+  background: #fff3e9;
+}
+
+.search-result-title {
+  font-weight: 800;
+}
+
+.search-result-room {
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  color: var(--sage);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.search-result-desc {
+  font-size: 0.9rem;
+  color: #6b6259;
+}
+
+.search-empty {
+  padding: 16px 18px;
+  color: #6b6259;
+  font-style: italic;
+}
