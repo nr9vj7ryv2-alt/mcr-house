@@ -80,12 +80,14 @@
     if (openBtn && panelWrap) {
       openBtn.addEventListener("click", function () {
         panelWrap.classList.add("open");
+        panelWrap.setAttribute("aria-hidden", "false");
         renderFavoritesPanel();
       });
     }
     if (closeBtn && panelWrap) {
       closeBtn.addEventListener("click", function () {
         panelWrap.classList.remove("open");
+        panelWrap.setAttribute("aria-hidden", "true");
       });
     }
   });
