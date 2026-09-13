@@ -28,14 +28,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     matches.slice(0, 8).forEach(function (item) {
+      var row = document.createElement("div");
+      row.className = "search-result";
+
       var link = document.createElement("a");
       link.href = item.url;
-      link.className = "search-result";
+      link.className = "search-result-link";
       link.innerHTML =
         "<span class='search-result-title'>" + item.title + "</span>" +
         "<span class='search-result-room'>" + item.room + "</span>" +
         "<span class='search-result-desc'>" + item.desc + "</span>";
-      results.appendChild(link);
+
+      var heartBtn = document.createElement("button");
+      heartBtn.type = "button";
+      heartBtn.className = "search-favorite-btn";
+      var favored = window.MCR_FAVORITES && window.MCR_FAVORITES.isFavorited(item.title);
+      heartBtn.textContent = favored ? "♥" : "♡";
+      heartBtn.setAttribute("aria-label", favored ? "Remove from favorites" : "Add to favorites");
+      heartBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!window.MCR_FAVORITES) return;
+        var nowFav = window.MCR_FAVORITES.toggleFavorite(item);
+        heartBtn.textContent = nowFav ? "♥" : "♡";
+        heartBtn.setAttribute("aria-label", nowFav ? "Remove from favorites" : "Add to favorites");
+      });
+
+      row.appendChild(link);
+      row.appendChild(heartBtn);
+      results.appendChild(row);
     });
 
     results.classList.add("open");
@@ -66,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Close the dropdown when clicking anywhere outside the search box/results
   document.addEventListener("click", function (e) {
-    if (!searchBox.contains(e.target) && !results.contains(e.target)) {
+    if (!searchBox.contains(e.target)) {
       clearResults();
     }
   });
