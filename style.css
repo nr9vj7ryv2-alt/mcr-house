@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
+
 * { box-sizing: border-box; }
 
 :root {
@@ -15,7 +17,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Atkinson Hyperlegible", Georgia, "Times New Roman", serif;
   background:
     radial-gradient(circle at 8% 4%, rgba(246, 222, 160, .42), transparent 30%),
     radial-gradient(circle at 92% 7%, rgba(207, 226, 239, .55), transparent 32%),
@@ -841,4 +843,31 @@ body.reduce-motion .room-hero::before {
 .favorites-empty {
   color: #6b6259;
   font-style: italic;
+}
+
+/* ==========================================
+   Skip to Main Content Link
+========================================== */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 12px;
+  background: var(--sage);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+  z-index: 100;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
 }
