@@ -1,0 +1,36 @@
+/* Light, optional styles for generated activity pages.
+   They inherit your site's fonts/colors where possible; tweak freely. */
+.activity, main > h1, main > .lede, .activity-grid, .breadcrumb {
+  max-width: 48rem; margin-inline: auto; padding-inline: 1rem;
+}
+.activity header, .activity section, .activity aside { margin-block: 1.5rem; }
+.activity-meta { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; }
+.activity-meta li { border: 2px solid currentColor; border-radius: 999px; padding: .15rem .8rem; font-weight: 700; }
+.safety-note { border: 3px solid #8a3b00; border-radius: .5rem; padding: 1rem 1.25rem; background: #fff6e8; color: #2b1a00; }
+.materials { list-style: none; padding: 0; }
+.materials li { padding: .4rem 0; }
+.materials input { width: 1.3rem; height: 1.3rem; vertical-align: middle; }
+.steps { padding-left: 1.25rem; }
+.steps li { margin-bottom: 1.25rem; }
+.steps h3 { margin: 0 0 .25rem; }
+.activity video, .activity-hero img { max-width: 100%; height: auto; border-radius: .5rem; }
+.transcript { margin-top: .75rem; }
+.activity-grid { list-style: none; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); max-width: 60rem; }
+.activity-card { border: 2px solid currentColor; border-radius: .5rem; padding: 1rem; }
+.activity-card h2 { margin-top: 0; font-size: 1.3rem; }
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #0b4f9e; outline-offset: 3px; }
+
+/* ---- Additions for the other rooms ---- */
+.kindness-cards { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.kindness-cards li { border: 2px solid currentColor; border-radius: .5rem; padding: 1rem; break-inside: avoid; }
+.kindness-message { font-size: 1.25rem; font-weight: 700; margin: 0 0 .5rem; }
+.kindness-try { margin: 0; }
+.kindness-week li { margin-bottom: .5rem; }
+.disclaimer { margin-top: 2rem; opacity: .85; }
+
+/* Print-friendly: hide site chrome so cards, checklists and steps print cleanly */
+@media print {
+  .skip-link, .site-header, .site-footer, .breadcrumb, nav, video, details.transcript { display: none !important; }
+  .activity, .activity-grid { max-width: none; padding: 0; }
+  a { color: inherit; text-decoration: none; }
+}
