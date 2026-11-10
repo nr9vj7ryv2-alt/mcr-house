@@ -1,102 +1,96 @@
-document.addEventListener("DOMContentLoaded", function () {
-  var input = document.querySelector(".search-box input");
-  var searchBox = document.querySelector(".search-box");
-  if (!input || !searchBox || typeof MCR_SEARCH_INDEX === "undefined") return;
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-box input');
+  const searchBox = document.querySelector('.search-box');
+  if (!input || !searchBox || !Array.isArray(window.MCR_SEARCH_INDEX)) return;
 
-  // Create the results dropdown and nest it INSIDE the search box
-  // (not as a topbar sibling, which would break the 3-column grid layout)
-  var results = document.createElement("div");
-  results.className = "search-results";
-  results.setAttribute("role", "listbox");
-  searchBox.style.position = "relative";
+  const results = document.createElement('div');
+  results.className = 'search-results';
+  results.id = 'mcrSearchResults';
+  results.setAttribute('role', 'region');
+  results.setAttribute('aria-label', 'Search results');
   searchBox.appendChild(results);
+  input.setAttribute('aria-controls', results.id);
+  input.setAttribute('aria-expanded', 'false');
 
   function clearResults() {
-    results.innerHTML = "";
-    results.classList.remove("open");
+    results.replaceChildren();
+    results.classList.remove('open');
+    input.setAttribute('aria-expanded', 'false');
   }
-
+  function openResults() {
+    results.classList.add('open');
+    input.setAttribute('aria-expanded', 'true');
+  }
+  function textSpan(className, value) {
+    const span = document.createElement('span');
+    span.className = className;
+    span.textContent = String(value ?? '');
+    return span;
+  }
   function renderResults(matches, query) {
-    results.innerHTML = "";
-    if (matches.length === 0) {
-      var empty = document.createElement("div");
-      empty.className = "search-empty";
-      empty.textContent = "No activities found for \"" + query + "\"";
+    results.replaceChildren();
+    if (!matches.length) {
+      const empty = document.createElement('div');
+      empty.className = 'search-empty';
+      empty.textContent = 'No activities found for "' + query + '"';
       results.appendChild(empty);
-      results.classList.add("open");
+      openResults();
       return;
     }
-
     matches.slice(0, 8).forEach(function (item) {
-      var row = document.createElement("div");
-      row.className = "search-result";
-
-      var link = document.createElement("a");
+      const row = document.createElement('div');
+      row.className = 'search-result';
+      const link = document.createElement('a');
       link.href = item.url;
-      link.className = "search-result-link";
-      link.innerHTML =
-        "<span class='search-result-title'>" + item.title + "</span>" +
-        "<span class='search-result-room'>" + item.room + "</span>" +
-        "<span class='search-result-desc'>" + item.desc + "</span>";
-
-      var heartBtn = document.createElement("button");
-      heartBtn.type = "button";
-      heartBtn.className = "search-favorite-btn";
-      var favored = window.MCR_FAVORITES && window.MCR_FAVORITES.isFavorited(item.title);
-      heartBtn.textContent = favored ? "♥" : "♡";
-      heartBtn.setAttribute("aria-label", favored ? "Remove from favorites" : "Add to favorites");
-      heartBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+      link.className = 'search-result-link';
+      link.append(
+        textSpan('search-result-title', item.title),
+        textSpan('search-result-room', item.room),
+        textSpan('search-result-desc', item.desc)
+      );
+      const heartBtn = document.createElement('button');
+      heartBtn.type = 'button';
+      heartBtn.className = 'search-favorite-btn';
+      function updateHeart() {
+        const favored = !!(window.MCR_FAVORITES && window.MCR_FAVORITES.isFavorited(item.title));
+        heartBtn.textContent = favored ? '♥' : '♡';
+        heartBtn.setAttribute('aria-label', (favored ? 'Remove from favorites: ' : 'Add to favorites: ') + item.title);
+        heartBtn.setAttribute('aria-pressed', String(favored));
+      }
+      updateHeart();
+      heartBtn.addEventListener('click', function () {
         if (!window.MCR_FAVORITES) return;
-        var nowFav = window.MCR_FAVORITES.toggleFavorite(item);
-        heartBtn.textContent = nowFav ? "♥" : "♡";
-        heartBtn.setAttribute("aria-label", nowFav ? "Remove from favorites" : "Add to favorites");
+        window.MCR_FAVORITES.toggleFavorite(item);
+        updateHeart();
       });
-
-      row.appendChild(link);
-      row.appendChild(heartBtn);
+      row.append(link, heartBtn);
       results.appendChild(row);
     });
-
-    results.classList.add("open");
+    openResults();
   }
-
   function doSearch() {
-    var query = input.value.trim().toLowerCase();
-    if (query.length === 0) {
-      clearResults();
-      return;
-    }
-
-    var matches = MCR_SEARCH_INDEX.filter(function (item) {
-      return (
-        item.title.toLowerCase().indexOf(query) !== -1 ||
-        item.desc.toLowerCase().indexOf(query) !== -1 ||
-        item.room.toLowerCase().indexOf(query) !== -1
-      );
+    const query = input.value.trim().toLowerCase();
+    if (!query) return clearResults();
+    const matches = window.MCR_SEARCH_INDEX.filter(function (item) {
+      return [item.title, item.desc, item.room].some(function (value) {
+        return String(value ?? '').toLowerCase().includes(query);
+      });
     });
-
     renderResults(matches, input.value.trim());
   }
-
-  input.addEventListener("input", doSearch);
-  input.addEventListener("focus", function () {
-    if (input.value.trim().length > 0) doSearch();
-  });
-
-  // Close the dropdown when clicking anywhere outside the search box/results
-  document.addEventListener("click", function (e) {
-    if (!searchBox.contains(e.target)) {
-      clearResults();
+  input.addEventListener('input', doSearch);
+  input.addEventListener('focus', function () { if (input.value.trim()) doSearch(); });
+  input.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') { clearResults(); input.blur(); }
+    if (event.key === 'ArrowDown' && results.classList.contains('open')) {
+      const first = results.querySelector('a, button');
+      if (first) { event.preventDefault(); first.focus(); }
     }
   });
-
-  // Close on Escape
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      clearResults();
-      input.blur();
-    }
+  results.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') { clearResults(); input.focus(); }
+  });
+  document.addEventListener('click', function (event) {
+    if (!searchBox.contains(event.target)) clearResults();
   });
 });
