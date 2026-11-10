@@ -873,3 +873,60 @@ body.reduce-motion .room-hero::before {
     transition: none;
   }
 }
+
+/* Homepage responsive and accessibility corrections — 2026-11 */
+/* Keep the artwork within the viewport without hiding other page content. */
+.hero { grid-template-columns: minmax(0, 38fr) minmax(0, 62fr); }
+.hero-copy, .hero-art { min-width: 0; }
+.hero-art { position: relative; }
+.hero-art img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  transform: none;
+}
+.search-box { position: relative; min-width: 0; }
+.search-box input { min-width: 0; }
+.brand { min-width: 0; }
+.brand-text { min-width: 0; }
+.room-nav { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.tab { min-width: 0; overflow-wrap: anywhere; }
+.preview-room, .footer { width: calc(100% - 48px); }
+.adapt-card { max-height: 100dvh; overflow-y: auto; }
+[data-setting][aria-pressed="true"] { background: #e5f1df !important; border-color: #315f42 !important; }
+body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+body.reduce-motion { scroll-behavior: auto; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media (max-width: 1050px) {
+  .topbar { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 20px 24px; }
+  .room-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 24px 12px; }
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .hero-art { min-height: 0; }
+  .hero-art img { width: 100%; }
+}
+@media (max-width: 520px) {
+  .topbar { padding: 16px; }
+  .brand-name { font-size: clamp(1.65rem, 8vw, 2.5rem); }
+  .brand-house { font-size: 2rem; }
+  .brand-butterfly { font-size: 1.4rem; }
+  .brand-subtitle { letter-spacing: .12rem; font-size: .8rem; }
+  .top-actions { flex-wrap: wrap; }
+  .room-nav { padding: 0 12px 12px; gap: 6px; }
+  .tab { padding: 12px 6px; }
+  .tab strong { font-size: .82rem; }
+  .tab span { font-size: .7rem; }
+  .hero { padding: 24px 16px; }
+  .hero h1 { font-size: clamp(2.4rem, 10vw, 3.5rem); overflow-wrap: anywhere; }
+  .eyebrow { font-size: 1.5rem; }
+  .motto { font-size: 1.25rem; }
+  .features { margin: 16px; }
+  .preview-room, .footer { width: calc(100% - 32px); margin-left: auto; margin-right: auto; }
+  .preview-room { padding: 24px 16px; }
+  .room-hero { padding: 24px 18px; }
+}
