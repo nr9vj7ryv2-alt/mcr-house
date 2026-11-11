@@ -1,6 +1,6 @@
 // MCR Search Index
 // Each entry: title, short description snippet, room label, and the page URL to link to.
-const MCR_SEARCH_INDEX = [
+window.MCR_SEARCH_INDEX = [
   // Creative Room
   { title: "Leaf Rubbing Art", desc: "Reveal a leaf's texture using paper and crayon.", room: "Creative Room", url: "creative-room.html" },
   { title: "Pumpkin Patch Counting", desc: "Counting and simple math with mini pumpkins.", room: "Creative Room", url: "creative-room.html" },
