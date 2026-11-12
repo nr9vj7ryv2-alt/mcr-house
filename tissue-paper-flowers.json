@@ -1,0 +1,37 @@
+{
+  "title": "Tissue Paper Flowers",
+  "summary": "Fold soft tissue paper into fluffy flowers on pipe cleaner stems. A gentle first craft for little hands.",
+  "ageRange": { "min": 4, "max": 8 },
+  "minutes": 15,
+  "difficulty": "easy",
+  "adultHelp": "An adult can cut the tissue squares for children under 6.",
+  "safetyNotes": [
+    "Pipe cleaner ends can poke. Fold the cut ends over, or have an adult do it.",
+    "Tissue paper and small scraps are not for mouths. Keep scraps away from children under 3."
+  ],
+  "materials": [
+    { "item": "8 squares of tissue paper, about 4 inches (10 cm), in 2 or 3 colors", "optional": false },
+    { "item": "1 pipe cleaner per flower", "optional": false },
+    { "item": "Child-safe scissors", "optional": false },
+    { "item": "A small cup or jar to display the flowers", "optional": true }
+  ],
+  "steps": [
+    { "title": "Stack the squares", "text": "Lay the 8 tissue squares on top of each other. Line up the edges so the pile is neat." },
+    { "title": "Fold like a fan", "text": "Fold the pile back and forth in strips about the width of your thumb. Press each fold flat." },
+    { "title": "Add the stem", "text": "Pinch the middle of the folded strip. Wrap a pipe cleaner around the pinch and twist it tight." },
+    { "title": "Fluff the petals", "text": "Gently pull each layer up toward the middle, one at a time, until the flower is round and full." },
+    { "title": "Show it off", "text": "Stand your flower in a cup. Make a few more in different colors to make a bouquet." }
+  ],
+  "tips": ["Round the ends of the folded strip with scissors for rounder petals."],
+  "learningConnections": ["Fine motor control", "Following steps in order", "Color choice and patterns"],
+  "heroAlt": "Three fluffy tissue paper flowers in pink, yellow and blue on green pipe cleaner stems, standing in a small cup.",
+  "videoNarration": [
+    "Stack your eight tissue squares and line up the edges.",
+    "Fold the stack back and forth like a fan, pressing each fold flat.",
+    "Pinch the middle and twist a pipe cleaner tightly around it.",
+    "Pull each layer up toward the middle to make the petals.",
+    "Put your flower in a cup and make some friends for it."
+  ],
+  "shotList": ["Overhead: hands stacking squares", "Close-up: fan folds", "Close-up: pinch and twist", "Overhead: fluffing petals", "Wide: finished bouquet"],
+  "createdAt": "2026-10-14"
+}

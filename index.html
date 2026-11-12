@@ -6,70 +6,53 @@
   <title>Monserrat's Creative Room</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Monserrat's Creative Room home">
-      <span class="brand-house">🏡</span>
+      <span class="brand-house" aria-hidden="true">🏡</span>
       <span class="brand-text">
-        <span class="brand-name">
-          <span>M</span><span>o</span><span>n</span><span>s</span><span>e</span><span>r</span><span>r</span><span>a</span><span>t</span><span>’s</span>
+        <span class="brand-name" aria-label="Monserrat’s">
+          <span aria-hidden="true">M</span><span aria-hidden="true">o</span><span aria-hidden="true">n</span><span aria-hidden="true">s</span><span aria-hidden="true">e</span><span aria-hidden="true">r</span><span aria-hidden="true">r</span><span aria-hidden="true">a</span><span aria-hidden="true">t</span><span aria-hidden="true">’s</span>
         </span>
         <span class="brand-subtitle">Creative Room</span>
       </span>
-      <span class="brand-butterfly">🦋</span>
+      <span class="brand-butterfly" aria-hidden="true">🦋</span>
     </a>
-
     <label class="search-box">
       <span class="sr-only">Search activities, printables, and ideas</span>
-      <input type="search" placeholder="Search activities, printables, ideas..." />
+      <input id="siteSearch" type="search" placeholder="Search activities, printables, ideas..." autocomplete="off" />
       <span aria-hidden="true">🔍</span>
     </label>
-
     <div class="top-actions">
-      <button class="adapt-button" type="button" id="adaptOpen">ADApt</button>
-      <button class="favorite-button" type="button">♡ Favorites</button>
+      <button class="adapt-button" type="button" id="adaptOpen" aria-haspopup="dialog" aria-controls="adaptPanel" aria-expanded="false">ADApt</button>
+      <button class="favorite-button" type="button" id="favoritesOpen" aria-haspopup="dialog" aria-controls="favoritesPanel" aria-expanded="false">♡ Favorites</button>
     </div>
   </header>
-
   <nav class="room-nav" aria-label="Main rooms">
-    <a class="tab welcome" href="index.html">🏠 <strong>Welcome</strong><span>Start Here</span></a>
+    <a class="tab welcome" href="index.html" aria-current="page">🏠 <strong>Welcome</strong><span>Start Here</span></a>
     <a class="tab creative" href="creative-room.html">🎨 <strong>Creative Room</strong><span>Art & Crafts</span></a>
     <a class="tab learning" href="learning-room.html">📖 <strong>Learning Room</strong><span>Books & Activities</span></a>
     <a class="tab play" href="play-room.html">🧩 <strong>Play Room</strong><span>Games & Fun</span></a>
     <a class="tab parent" href="parent-room.html">💚 <strong>Parent Room</strong><span>Tips & Support</span></a>
     <a class="tab family" href="family-room.html">👨‍👩‍👧 <strong>Family Room</strong><span>Together Time</span></a>
     <a class="tab kindness" href="kindness-corner.html">🕊️ <strong>Kindness Corner</strong><span>Quotes & Ideas</span></a>
-    <a class="tab teaching" href="teaching-corner.html">📚 <strong>Teaching Corner</strong><span>For Educators</span></a>
   </nav>
-
-  <main class="hero">
+  <main class="hero" id="main-content">
     <section class="hero-copy">
       <p class="eyebrow">Welcome to</p>
-      <h1>
-        <span>Monserrat’s</span>
-        <span>Creative Room</span>
-      </h1>
-
-      <div class="divider">🌿 ❤️ 🌿</div>
-
+      <h1><span>Monserrat’s</span><span>Creative Room</span></h1>
+      <div class="divider" aria-hidden="true">🌿 ❤️ 🌿</div>
       <p class="motto">Learn. Create. Grow Together.</p>
-
-      <p class="intro">
-        A cozy place for families and educators to discover ideas, crafts,
-        stories, and tools that inspire learning and connection.
-      </p>
-
+      <p class="intro">A cozy place for families and educators to discover ideas, crafts, stories, and tools that inspire learning and connection.</p>
       <a class="door-button" href="creative-room.html">🚪 Open the Door →</a>
     </section>
-
     <section class="hero-art" aria-label="Watercolor cottage entrance">
       <span class="butterfly butterfly-one" aria-hidden="true">🦋</span>
       <span class="butterfly butterfly-two" aria-hidden="true">🦋</span>
       <img src="hero-cottage.jpg" alt="Watercolor cottage with a welcoming coral door, trees, flowers, and a garden path" />
     </section>
   </main>
-
   <section class="features" aria-label="MCR highlights">
     <article>🌱 <strong>Kid-Friendly Activities</strong><span>Fun and engaging for all ages</span></article>
     <article>❤️ <strong>Made for Families</strong><span>Real ideas for real life at home</span></article>
@@ -77,30 +60,34 @@
     <article>🏡 <strong>Made to Welcome</strong><span>A place where every family belongs</span></article>
     <article>🌿 <strong>Curated with Care</strong><span>Resources and recommendations chosen with families in mind.</span></article>
   </section>
-
   <section class="preview-room">
     <h2>🎨 Creative Room</h2>
     <p>Art, crafts, printables, and creative projects designed to inspire children and families to learn through creativity.</p>
     <a class="door-button small" href="creative-room.html">🎨 Enter Creative Room →</a>
   </section>
-
-  <footer class="footer">
-    🏡 You are always welcome here. ❤️
-  </footer>
-
-  <aside class="adapt-panel" id="adaptPanel" aria-hidden="true">
+  <footer class="footer">🏡 You are always welcome here. ❤️</footer>
+  <aside class="adapt-panel" id="adaptPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="adaptTitle" tabindex="-1">
     <div class="adapt-card">
-      <button class="close-adapt" id="adaptClose" type="button">×</button>
-      <h2>ADApt</h2>
+      <button class="close-adapt" id="adaptClose" type="button" aria-label="Close accessibility settings">×</button>
+      <h2 id="adaptTitle">ADApt</h2>
       <p>Customize your experience.</p>
-
-      <button type="button" data-setting="largeText">Larger Text</button>
-      <button type="button" data-setting="highContrast">High Contrast</button>
-      <button type="button" data-setting="reduceMotion">Reduce Motion</button>
-      <button type="button" data-setting="simpleFont">Simple Font</button>
+      <button type="button" data-setting="largeText" aria-pressed="false">Larger Text</button>
+      <button type="button" data-setting="highContrast" aria-pressed="false">High Contrast</button>
+      <button type="button" data-setting="reduceMotion" aria-pressed="false">Reduce Motion</button>
+      <button type="button" data-setting="simpleFont" aria-pressed="false">Simple Font</button>
     </div>
   </aside>
-
+  <aside class="adapt-panel" id="favoritesPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="favoritesTitle" tabindex="-1">
+    <div class="adapt-card">
+      <button class="close-adapt" id="favoritesClose" type="button" aria-label="Close favorites">×</button>
+      <h2 id="favoritesTitle">♡ Favorites</h2>
+      <p>Your saved activities, right where you left them.</p>
+      <div id="favoritesPanelBody"></div>
+    </div>
+  </aside>
   <script src="script.js"></script>
+  <script src="search-data.js"></script>
+  <script src="favorites.js"></script>
+  <script src="search.js"></script>
 </body>
 </html>
