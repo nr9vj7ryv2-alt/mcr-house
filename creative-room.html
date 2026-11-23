@@ -251,6 +251,27 @@
 </article>
 
 <article>
+  <h2>🎨 Colorful Watercolor Silhouette</h2>
+  <p>Make a dark paper shape stand out against a bright watercolor background.</p>
+
+  <h3>What you’ll need</h3>
+  <p>Black construction paper, watercolor paper, watercolors, a brush, a cup of water, a pencil, scissors, and glue.</p>
+
+  <h3>How to play</h3>
+  <ol>
+    <li>Draw a large shape on black paper, such as a cat, a leaf, or a house.</li>
+    <li>Ask a grown-up to help cut it out, then glue it onto watercolor paper.</li>
+    <li>Paint around the shape. Try a light color next to the dark edge and see how it stands out.</li>
+  </ol>
+
+  <h3>Make it work for your child</h3>
+  <p>Offer two large, pre-cut shapes to choose from. Your child can point to where the shape goes, then paint with a sponge or a thick-handled brush.</p>
+
+  <h3>Monserrat’s tip</h3>
+  <p>Repeat the same shape across the page and paint a different color around each one.</p>
+</article>
+
+<article>
   <h2>🔗 More Inspiration</h2>
   <p>A few of our favorite outside sources for arts &amp; crafts ideas — perfect for extra inspiration between MCR activities.</p>
   <ul class="link-list">
@@ -260,42 +281,6 @@
     <li><a href="https://www.easypeasyandfun.com" target="_blank" rel="noopener">Easy Peasy and Fun</a></li>
   </ul>
 </article>
-
-
-
-    </section>
-
-    <script>
-      (function () {
-        var month = new Date().getMonth(); // 0 = Jan ... 11 = Dec
-        var season;
-        if (month >= 8 && month <= 10) season = "fall";        // Sep, Oct, Nov
-        else if (month === 11 || month <= 1) season = "winter"; // Dec, Jan, Feb
-        else if (month >= 2 && month <= 4) season = "spring";   // Mar, Apr, May
-        else season = "summer";                                 // Jun, Jul, Aug
-
-        var labels = {
-          fall: "🍂 Showing Fall activities",
-          winter: "❄️ Showing Winter activities",
-          spring: "🌱 Showing Spring activities",
-          summer: "☀️ Showing Summer activities"
-        };
-
-        var cards = document.querySelectorAll(".season-card");
-        var label = document.getElementById("season-label");
-        var toggleBtn = document.getElementById("season-toggle");
-        var showingAll = false;
-
-        function applyFilter() {
-          cards.forEach(function (card) {
-            var matches = card.getAttribute("data-season") === season;
-            card.style.display = (showingAll || matches) ? "" : "none";
-          });
-          label.textContent = showingAll ? "Showing all seasons" : labels[season];
-          toggleBtn.textContent = showingAll ? "Show Current Season Only" : "Show All Seasons";
-        }
-
-        toggleBtn.addEventListener("click", function () {
           showingAll = !showingAll;
           applyFilter();
         });
