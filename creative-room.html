@@ -27,7 +27,7 @@
         <button id="season-toggle" class="download-btn season-toggle-btn" type="button">Show All Seasons</button>
       </article>
 
-      <article class="season-card" data-season="fall">
+      <article class="season-card" data-season="fall" id="leaf-rubbing-art">
         <h2>🍁 Leaf Rubbing Art <span class="badge">Fall</span></h2>
         <p><strong>Ages 3–12</strong></p>
         <p>
@@ -38,7 +38,7 @@
         </p>
       </article>
 
-      <article class="season-card" data-season="fall">
+      <article class="season-card" data-season="fall" id="pumpkin-patch-counting">
         <h2>🎃 Pumpkin Patch Counting <span class="badge">Fall</span></h2>
         <p><strong>Ages 3–5</strong></p>
         <p>
@@ -69,7 +69,7 @@
         <p>Simple, beautiful projects using materials families may already have at home.</p>
       </article>
 
-      <article>
+      <article id="salt-painting">
         <h2>🖌️ Salt Painting <span class="badge">🖨️ Printable</span></h2>
         <p><strong>Ages 3–12</strong></p>
         <p>Watch color spread along raised lines of salt to make a textured painting.</p>
@@ -86,7 +86,7 @@
         </a>
       </article>
 
-      <article>
+      <article id="spin-art">
         <h2>🌀 Spin Art <span class="badge">🖨️ Printable</span></h2>
         <p><strong>Ages 3–12</strong></p>
         <p>
@@ -101,7 +101,7 @@
         </a>
       </article>
 
-      <article>
+      <article id="paper-plate-animal-masks">
         <h2>🎭 Paper Plate Animal Masks <span class="badge">🖨️ Printable</span></h2>
         <p><strong>Ages 3–12</strong></p>
         <p>
@@ -136,7 +136,7 @@
         </a>
       </article>
 
-      <article>
+      <article id="tissue-paper-suncatcher">
         <h2>☀️ Tissue Paper Suncatcher <span class="badge">🖨️ Printable</span></h2>
         <p><strong>Ages 3–12</strong></p>
         <p>
@@ -151,7 +151,7 @@
         </a>
       </article>
 
-      <article>
+      <article id="recycled-robot-challenge">
         <h2>🤖 Recycled Robot Challenge <span class="badge">🖨️ Printable</span></h2>
         <p><strong>Ages 4–12</strong></p>
         <p>
@@ -187,7 +187,7 @@
         <p>Offer pre-cut puppets or thicker handles. Your child can choose a character, make sound effects, move a puppet, or tell the story.</p>
       </article>
 
-  <article>
+  <article id="watercolor-rainbow">
   <h2>🌈 Watercolor Rainbow</h2>
         <p><strong>Ages 2–12</strong></p>
   <p>Start with red, yellow, and blue. See how many new colors you can mix for your rainbow.</p>
@@ -205,7 +205,7 @@
   <h3>Make it work for your child</h3>
   <p>Start with just two colors and mix one new shade together. Offer a sponge or a thick-handled brush, and say the color names aloud as you mix.</p>
 </article>
-      <article>
+      <article id="fruit-stamping">
   <h2>🍎 Fruit Stamping</h2>
         <p><strong>Ages 2–5</strong></p>
   <p>What shape does an apple leave on paper? Try stamping with fruit to make prints and patterns.</p>
@@ -224,7 +224,7 @@
   <p>Start with one color and tape the paper to the table if it slides. Your child can stamp with you or point to where they want the next print to go.</p>
 </article>
 
-<article>
+<article id="nature-collage">
   <h2>🍃 Nature Collage</h2>
         <p><strong>Ages 2–8</strong></p>
   <p>Turn leaves and other finds from a nature walk into a picture.</p>
@@ -246,7 +246,7 @@
   <p>Try painting a background first. When it dries, add your leaves to make a garden or a forest.</p>
 </article>
 
-<article>
+<article id="watercolor-resist-art">
   <h2>🖍️ Watercolor Resist Art</h2>
         <p><strong>Ages 2–8</strong></p>
   <p>Draw with a white crayon, then paint over the paper to reveal your hidden picture.</p>
@@ -268,7 +268,7 @@
   <p>Make a secret picture for someone else to reveal.</p>
 </article>
 
-<article>
+<article id="colorful-watercolor-silhouette">
   <h2>🎨 Colorful Watercolor Silhouette</h2>
         <p><strong>Ages 2–5</strong></p>
   <p>Make a dark paper shape stand out against a bright watercolor background.</p>
@@ -289,7 +289,7 @@
   <h3>Monserrat’s tip</h3>
   <p>Repeat the same shape across the page and paint a different color around each one.</p>
 </article>
-<article>
+<article id="bubble-painting">
   <h2>🫧 Bubble Painting</h2>
         <p><strong>Ages 2–12</strong></p>
   <p>Catch colorful bubbles on paper and see what patterns they leave behind.</p>
@@ -311,7 +311,7 @@
     <p>When the prints are dry, draw stems under the rings to turn them into a bubble garden.</p>
 </article>
 
-<article>
+<article id="marble-painting">
   <h2>🎨 Marble Painting</h2>
         <p><strong>Ages 2–12</strong></p>
   <p>Tilt a box and watch a rolling ball leave colorful trails.</p>
@@ -468,7 +468,9 @@
         var cards = document.querySelectorAll(".season-card");
         var label = document.getElementById("season-label");
         var toggleBtn = document.getElementById("season-toggle");
-        var showingAll = false;
+        var linkedCard = document.getElementById(window.location.hash.slice(1));
+        var showingAll = Boolean(linkedCard && linkedCard.classList.contains("season-card") &&
+          linkedCard.getAttribute("data-season") !== season);
 
         function applyFilter() {
           cards.forEach(function (card) {
@@ -485,6 +487,7 @@
         });
 
         applyFilter();
+        if (showingAll && linkedCard) linkedCard.scrollIntoView();
       })();
     </script>
 
