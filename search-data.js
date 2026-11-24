@@ -2,18 +2,25 @@
 // Each entry: title, short description snippet, room label, and the page URL to link to.
 window.MCR_SEARCH_INDEX = [
   // Creative Room
+  { title: "Watercolor Rainbow", desc: "Mix red, yellow, and blue to paint a rainbow.", room: "Creative Room", url: "creative-room.html#watercolor-rainbow" },
+  { title: "Fruit Stamping", desc: "Stamp fruit shapes and make colorful patterns.", room: "Creative Room", url: "creative-room.html#fruit-stamping" },
+  { title: "Nature Collage", desc: "Arrange leaves and other nature finds to make a collage.", room: "Creative Room", url: "creative-room.html#nature-collage" },
+  { title: "Watercolor Resist Art", desc: "Paint over a white crayon drawing to reveal a hidden picture.", room: "Creative Room", url: "creative-room.html#watercolor-resist-art" },
+  { title: "Colorful Watercolor Silhouette", desc: "Pair a dark paper shape with a bright watercolor background.", room: "Creative Room", url: "creative-room.html#colorful-watercolor-silhouette" },
+  { title: "Bubble Painting", desc: "Catch colorful bubbles on paper and watch the patterns appear.", room: "Creative Room", url: "creative-room.html#bubble-painting" },
+  { title: "Marble Painting", desc: "Tilt a box and watch a rolling ball leave colorful paint trails.", room: "Creative Room", url: "creative-room.html#marble-painting" },
     { title: "Finger Painting Fun", desc: "Use washable finger paints to make shapes and mix colors.", room: "Creative Room", url: "creative-room.html#finger-painting-fun" },
   { title: "Ice Painting", desc: "Slide colorful ice across paper and watch it melt.", room: "Creative Room", url: "creative-room.html#ice-painting" },
     { title: "Shadow Puppet Theater", desc: "Make paper puppets and tell a story with light and shadows.", room: "Creative Room", url: "creative-room.html#shadow-puppet-theater" },
   { title: "Cardboard Guitar", desc: "Turn an empty tissue box and rubber bands into a guitar.", room: "Creative Room", url: "creative-room.html#cardboard-guitar" },
   { title: "Tissue Paper Pom-Poms", desc: "Fold and fluff tissue paper to make a colorful decoration.", room: "Creative Room", url: "creative-room.html#tissue-paper-pom-poms" },
-  { title: "Leaf Rubbing Art", desc: "Reveal a leaf's texture using paper and crayon.", room: "Creative Room", url: "creative-room.html" },
-  { title: "Pumpkin Patch Counting", desc: "Counting and simple math with mini pumpkins.", room: "Creative Room", url: "creative-room.html" },
-  { title: "Printables: Salt Painting Pack", desc: "Ready-to-use printable art activity.", room: "Creative Room", url: "creative-room.html" },
-  { title: "Spin Art", desc: "Colorful spinning art exploring motion and symmetry.", room: "Creative Room", url: "creative-room.html" },
-  { title: "Paper Plate Animal Masks", desc: "Craft animal masks from paper plates.", room: "Creative Room", url: "creative-room.html" },
-  { title: "Tissue Paper Suncatcher", desc: "A colorful window decoration craft.", room: "Creative Room", url: "creative-room.html" },
-  { title: "Recycled Robot Challenge", desc: "Build a robot from recycled materials.", room: "Creative Room", url: "creative-room.html" },
+  { title: "Leaf Rubbing Art", desc: "Reveal a leaf's texture using paper and crayon.", room: "Creative Room", url: "creative-room.html#leaf-rubbing-art" },
+  { title: "Pumpkin Patch Counting", desc: "Counting and simple math with mini pumpkins.", room: "Creative Room", url: "creative-room.html#pumpkin-patch-counting" },
+  { title: "Salt Painting Pack", desc: "Ready-to-use printable art activity.", room: "Creative Room", url: "creative-room.html#salt-painting" },
+  { title: "Spin Art", desc: "Colorful spinning art exploring motion and symmetry.", room: "Creative Room", url: "creative-room.html#spin-art" },
+  { title: "Paper Plate Animal Masks", desc: "Craft animal masks from paper plates.", room: "Creative Room", url: "creative-room.html#paper-plate-animal-masks" },
+  { title: "Tissue Paper Suncatcher", desc: "A colorful window decoration craft.", room: "Creative Room", url: "creative-room.html#tissue-paper-suncatcher" },
+  { title: "Recycled Robot Challenge", desc: "Build a robot from recycled materials.", room: "Creative Room", url: "creative-room.html#recycled-robot-challenge" },
   { title: "More Inspiration (Arts & Crafts Links)", desc: "Outside blogs for arts & crafts ideas.", room: "Creative Room", url: "creative-room.html" },
 
   // Learning Room
