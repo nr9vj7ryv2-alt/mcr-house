@@ -2,6 +2,8 @@
 // Each entry: title, short description snippet, room label, and the page URL to link to.
 window.MCR_SEARCH_INDEX = [
   // Creative Room
+    { title: "Finger Painting Fun", desc: "Use washable finger paints to make shapes and mix colors.", room: "Creative Room", url: "creative-room.html#finger-painting-fun" },
+  { title: "Ice Painting", desc: "Slide colorful ice across paper and watch it melt.", room: "Creative Room", url: "creative-room.html#ice-painting" },
   { title: "Leaf Rubbing Art", desc: "Reveal a leaf's texture using paper and crayon.", room: "Creative Room", url: "creative-room.html" },
   { title: "Pumpkin Patch Counting", desc: "Counting and simple math with mini pumpkins.", room: "Creative Room", url: "creative-room.html" },
   { title: "Printables: Salt Painting Pack", desc: "Ready-to-use printable art activity.", room: "Creative Room", url: "creative-room.html" },
