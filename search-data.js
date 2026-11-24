@@ -2,6 +2,13 @@
 // Each entry: title, short description snippet, room label, and the page URL to link to.
 window.MCR_SEARCH_INDEX = [
   // Creative Room
+  { title: "Sliding-Bead Fidget Bracelet", desc: "Make a bracelet with a paper bead that slides back and forth.", room: "Creative Room", url: "creative-room.html#sliding-bead-fidget-bracelet" },
+  { title: "Nature Weaving", desc: "Weave leaves and other flat nature finds through a simple cardboard loom.", room: "Creative Room", url: "creative-room.html#nature-weaving" },
+  { title: "Ripped Paper Collage", desc: "Tear colorful paper and arrange the pieces into a picture.", room: "Creative Room", url: "creative-room.html#ripped-paper-collage" },
+  { title: "Color by Number", desc: "Use a simple color key to fill in a picture one section at a time.", room: "Creative Room", url: "creative-room.html#color-by-number" },
+  { title: "Diamond Art", desc: "Make a mosaic with colorful paper diamonds.", room: "Creative Room", url: "creative-room.html#diamond-art" },
+  { title: "Clothespin Painting & Transfers", desc: "Pick up sponge pieces with a clothespin and use them to stamp paint.", room: "Creative Room", url: "creative-room.html#clothespin-painting-and-transfers" },
+  { title: "Homemade Puzzles", desc: "Turn a favorite drawing into a puzzle with a few big pieces.", room: "Creative Room", url: "creative-room.html#homemade-puzzles" },
   { title: "Watercolor Rainbow", desc: "Mix red, yellow, and blue to paint a rainbow.", room: "Creative Room", url: "creative-room.html#watercolor-rainbow" },
   { title: "Fruit Stamping", desc: "Stamp fruit shapes and make colorful patterns.", room: "Creative Room", url: "creative-room.html#fruit-stamping" },
   { title: "Nature Collage", desc: "Arrange leaves and other nature finds to make a collage.", room: "Creative Room", url: "creative-room.html#nature-collage" },
