@@ -4,6 +4,9 @@ window.MCR_SEARCH_INDEX = [
   // Creative Room
     { title: "Finger Painting Fun", desc: "Use washable finger paints to make shapes and mix colors.", room: "Creative Room", url: "creative-room.html#finger-painting-fun" },
   { title: "Ice Painting", desc: "Slide colorful ice across paper and watch it melt.", room: "Creative Room", url: "creative-room.html#ice-painting" },
+    { title: "Shadow Puppet Theater", desc: "Make paper puppets and tell a story with light and shadows.", room: "Creative Room", url: "creative-room.html#shadow-puppet-theater" },
+  { title: "Cardboard Guitar", desc: "Turn an empty tissue box and rubber bands into a guitar.", room: "Creative Room", url: "creative-room.html#cardboard-guitar" },
+  { title: "Tissue Paper Pom-Poms", desc: "Fold and fluff tissue paper to make a colorful decoration.", room: "Creative Room", url: "creative-room.html#tissue-paper-pom-poms" },
   { title: "Leaf Rubbing Art", desc: "Reveal a leaf's texture using paper and crayon.", room: "Creative Room", url: "creative-room.html" },
   { title: "Pumpkin Patch Counting", desc: "Counting and simple math with mini pumpkins.", room: "Creative Room", url: "creative-room.html" },
   { title: "Printables: Salt Painting Pack", desc: "Ready-to-use printable art activity.", room: "Creative Room", url: "creative-room.html" },
