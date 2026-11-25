@@ -5,6 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creative Room | Monserrat's Creative Room</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .activity-carousel { grid-column: 1 / -1; min-width: 0; }
+    .activity-carousel__header { display: flex; flex-wrap: wrap; gap: .75rem 1rem; justify-content: space-between; align-items: center; margin: 1rem 0 .5rem; }
+    .activity-carousel__header h2 { margin: 0; }
+    .activity-carousel__controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .activity-carousel__controls button { margin: 0; font: inherit; min-height: 44px; }
+    .activity-carousel__track {
+      display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 2rem) / 3);
+      align-items: start; gap: 1rem; overflow-x: auto; overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory; padding: .375rem .25rem .75rem; min-width: 0;
+    }
+    .room-grid .activity-carousel__track > article {
+      min-width: 0; margin: 0; overflow-wrap: anywhere; scroll-snap-align: start;
+      animation: none; transform: none;
+    }
+    .activity-carousel__track details { margin-top: .85rem; }
+    .activity-carousel__track summary { cursor: pointer; font-weight: 600; padding-block: .5rem; }
+    .activity-carousel__track img { display: block; max-width: 90%; margin-inline: auto; }
+    .activity-carousel :focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      body:not(.reduce-motion) .activity-carousel__track img { transition: transform .25s ease; }
+      body:not(.reduce-motion) .activity-carousel__track article:hover img { transform: scale(1.08); }
+    }
+    @media (max-width: 870px) {
+      .activity-carousel__track { grid-auto-columns: calc((100% - 1rem) / 2); }
+    }
+    @media (max-width: 580px) {
+      .activity-carousel__track { grid-auto-columns: 92%; }
+    }
+  </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -600,6 +630,155 @@
 
         applyFilter();
         if (showingAll && linkedCard) linkedCard.scrollIntoView();
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const grid = document.querySelector(".creative-page .room-grid");
+        const painting = new Set([
+          "salt-painting", "spin-art", "watercolor-rainbow", "fruit-stamping",
+          "watercolor-resist-art", "colorful-watercolor-silhouette", "bubble-painting",
+          "marble-painting", "finger-painting-fun", "ice-painting", "color-by-number",
+          "clothespin-painting-and-transfers"
+        ]);
+        const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const reducedMotion = () => {
+          if (motion.matches || document.body.classList.contains("reduce-motion")) return true;
+          try {
+            return JSON.parse(localStorage.getItem("mcr-adapt-settings") || "{}").reduceMotion === true;
+          } catch {
+            return false;
+          }
+        };
+        if (reducedMotion()) document.body.classList.add("reduce-motion");
+
+        const cards = [...grid.querySelectorAll(":scope > article[id]:not(.season-card)")];
+        const groups = [
+          ["painting-and-color", "Painting & Color", cards.filter(card => painting.has(card.id))],
+          ["crafts-and-making", "Crafts & Making", cards.filter(card => !painting.has(card.id))]
+        ];
+        const insertionPoint = cards[0];
+
+        for (const [id, title, group] of groups) {
+          if (!group.length) continue;
+          const carousel = document.createElement("section");
+          carousel.className = "activity-carousel";
+          carousel.setAttribute("aria-labelledby", id + "-heading");
+          carousel.innerHTML = `
+            <div class="activity-carousel__header">
+              <h2 id="${id}-heading"></h2>
+              <div class="activity-carousel__controls">
+                <button class="download-btn" type="button" data-previous>Previous</button>
+                <button class="download-btn" type="button" data-next>Next</button>
+                <button class="download-btn" type="button" data-playback>Pause</button>
+              </div>
+            </div>
+            <div class="activity-carousel__track" id="${id}-cards" role="group" tabindex="0"
+              aria-labelledby="${id}-heading"></div>`;
+          carousel.querySelector("h2").textContent = title;
+          const track = carousel.querySelector(".activity-carousel__track");
+          const playback = carousel.querySelector("[data-playback]");
+          for (const [selector, label] of [["[data-previous]", "Previous"], ["[data-next]", "Next"]]) {
+            const button = carousel.querySelector(selector);
+            button.setAttribute("aria-label", label + " activity in " + title);
+            button.setAttribute("aria-controls", track.id);
+          }
+          playback.setAttribute("aria-controls", track.id);
+          // Insert both rows in their intended order before moving the original cards.
+          grid.insertBefore(carousel, insertionPoint?.parentElement === grid ? insertionPoint : grid.lastElementChild);
+          for (const card of group) {
+            const materials = [...card.children].find(child =>
+              child.tagName === "H3" && child.textContent.trim() === "What you’ll need");
+            if (materials) {
+              const details = document.createElement("details");
+              const summary = document.createElement("summary");
+              summary.textContent = "Activity instructions";
+              const content = [materials];
+              for (let item = materials.nextElementSibling; item; item = item.nextElementSibling) {
+                content.push(item);
+              }
+              details.append(summary, ...content);
+              card.append(details);
+            }
+            track.append(card);
+          }
+
+          let paused = false;
+          let hovering = false;
+          let interacting = false;
+          let lastInteraction = 0;
+
+          function move(direction, instant = false) {
+            const max = track.scrollWidth - track.clientWidth;
+            if (max <= 1) return;
+            const current = track.scrollLeft;
+            const rect = track.getBoundingClientRect();
+            const start = group[0].getBoundingClientRect().left;
+            const positions = [...new Set(group.map(card =>
+              Math.min(max, Math.round(card.getBoundingClientRect().left - start))))];
+            const next = direction > 0
+              ? positions.find(position => position > current + 2) ?? 0
+              : positions.slice().reverse().find(position => position < current - 2) ?? max;
+            const wraps = direction > 0 ? current >= max - 2 : current <= 2;
+            track.scrollTo({
+              left: next,
+              behavior: instant || wraps || reducedMotion() || !rect.width ? "instant" : "smooth"
+            });
+          }
+          function updatePlayback() {
+            const reduced = reducedMotion();
+            playback.disabled = reduced;
+            playback.textContent = reduced ? "Motion off" : paused ? "Play" : "Pause";
+            playback.setAttribute("aria-label", playback.textContent + " automatic scrolling in " + title);
+          }
+          function manualMove(direction) {
+            lastInteraction = Date.now();
+            move(direction);
+          }
+          carousel.querySelector("[data-previous]").addEventListener("click", () => manualMove(-1));
+          carousel.querySelector("[data-next]").addEventListener("click", () => manualMove(1));
+          playback.addEventListener("click", () => {
+            paused = !paused;
+            updatePlayback();
+          });
+          carousel.addEventListener("pointerenter", event => { if (event.pointerType === "mouse") hovering = true; });
+          carousel.addEventListener("pointerleave", () => { hovering = false; });
+          track.addEventListener("pointerdown", () => { interacting = true; });
+          const endInteraction = () => { interacting = false; lastInteraction = Date.now(); };
+          window.addEventListener("pointerup", () => { if (interacting) endInteraction(); });
+          window.addEventListener("pointercancel", () => { if (interacting) endInteraction(); });
+          track.addEventListener("keydown", event => {
+            if (event.target !== track || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+            event.preventDefault();
+            manualMove(event.key === "ArrowLeft" ? -1 : 1);
+          });
+
+          function revealLinkedCard() {
+            const target = group.find(card => "#" + card.id === location.hash);
+            if (!target) return;
+            paused = true;
+            updatePlayback();
+            const details = target.querySelector("details");
+            if (details) details.open = true;
+            requestAnimationFrame(() => target.scrollIntoView({ block: "start", inline: "nearest", behavior: "instant" }));
+          }
+          window.addEventListener("hashchange", revealLinkedCard);
+          motion.addEventListener("change", () => {
+            document.body.classList.remove("reduce-motion");
+            document.body.classList.toggle("reduce-motion", reducedMotion());
+            updatePlayback();
+          });
+          window.setInterval(() => {
+            const rect = track.getBoundingClientRect();
+            if (paused || reducedMotion() || document.hidden || hovering || interacting ||
+                carousel.contains(document.activeElement) || track.querySelector("details[open]") ||
+                Date.now() - lastInteraction < 7000 || rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+            move(1);
+          }, 7500);
+          updatePlayback();
+          revealLinkedCard();
+        }
       })();
     </script>
 
